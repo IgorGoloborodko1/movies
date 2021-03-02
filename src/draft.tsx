@@ -1,18 +1,16 @@
 import React from 'react'
 
+import styles from './draft.module.css'
+
 export function sum(a: number, b: number): number {
   return a + b
 }
 
-console.log('hi')
-
-const HelloWebpack = () => {
+export const HelloWebpack: React.FC = () => {
   return (
     <div>
-      <h1 className="main-title">Hello Something</h1>
-      <div className="logo"></div>
+      <h1 className={styles.mainTitle}>Hello Something</h1>
+      <div className={styles.logo}></div>
     </div>
   )
 }
-
-export default HelloWebpack

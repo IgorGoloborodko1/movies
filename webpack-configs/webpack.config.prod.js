@@ -16,8 +16,24 @@ module.exports = merge(commonConfig, {
     rules: [
       {
         test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              modules: {
+                localIdentName: '[hash:base64]',
+              },
+            },
+          },
+        ],
+        include: /\.module\.css$/,
+      },
+      {
+        test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
-        exclude: /node_modules/,
+        exclude: /\.module\.css$/,
       },
     ],
   },
