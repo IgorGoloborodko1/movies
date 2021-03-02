@@ -1,0 +1,12 @@
+.mainTitle {
+  color: red;
+  font-size: 200px;
+}
+
+.logo {
+  background-image: url('../assets//webpack-logo.png');
+  background-size: cover;
+  height: 200px;
+  width: 200px;
+  margin: 0 auto;
+}
