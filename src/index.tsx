@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import HelloWebpack from './draft'
+import { HelloWebpack } from './draft'
 
 import './index.css'
 
