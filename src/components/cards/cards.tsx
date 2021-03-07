@@ -3,19 +3,23 @@ import React from 'react'
 import { MovieCard } from './card'
 import { movies } from './moviesData'
 
-export const MovieCards = () => {
+import styles from './cards.module.css'
+
+export const MovieCards: React.FC = () => {
   return (
-    <ul>
-      {movies.map(({ id, imgSrc, name, year, description }) => (
-        <li key={id}>
-          <MovieCard
-            imgSrc={imgSrc}
-            name={name}
-            year={year}
-            description={description}
-          />
-        </li>
-      ))}
-    </ul>
+    <section className={styles.container}>
+      <ul className={styles.list}>
+        {movies.map(({ id, imgSrc, name, year, description }) => (
+          <li key={id} className={style}>
+            <MovieCard
+              imgSrc={imgSrc}
+              name={name}
+              year={year}
+              description={description}
+            />
+          </li>
+        ))}
+      </ul>
+    </section>
   )
 }
