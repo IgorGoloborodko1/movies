@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
 
+import styles from './card.module.css'
+
 interface MovieCardProps {
   imgSrc: string
   name: string
@@ -15,8 +17,10 @@ export const MovieCard: React.FC<MovieCardProps> = ({
   description,
 }) => {
   return (
-    <div>
-      <img src={imgSrc}></img>
+    <div className={styles.container}>
+      <figure className={styles.figure}>
+        <img className={styles.image} src={imgSrc}></img>
+      </figure>
       <div>
         <div>
           <span>{name}</span>

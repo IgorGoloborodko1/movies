@@ -1,0 +1,39 @@
+.container {
+}
+
+.figure {
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+}
+
+.image {
+  width: 100%;
+  height: 400px;
+}
+
+/* .breweries > ul > li > figure > figcaption {
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(0,0,0,.7);
+  width: 100%;
+} */
+
+/* .breweries > ul > li > figure > figcaption > h3 {
+  color: white;
+  padding: .75rem;
+  font-size: 1.25rem;
+} */
+
+/* .breweries > ul > li > p {
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: 1rem .75rem;
+  color: #666666;
+}
+
+.breweries > ul > li > a {
+  padding: .5rem 1rem;
+  margin: .5rem;
+} */

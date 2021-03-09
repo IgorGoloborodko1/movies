@@ -1,3 +1,26 @@
-* {
-  background-color: salmon;
+@import './styleConsts/styleConsts.css';
+
+html {
+  background-color: var(--color-light-grey);
+  scroll-behavior: smooth;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  background-color: goldenrod;
+  text-decoration: none;
+  color: white;
+  border-radius: .25rem;
+  text-align: center;
+  display: inline-block;
+  transition: all .3s;
+}
+
+a:hover {
+  opacity: .6;
 }
