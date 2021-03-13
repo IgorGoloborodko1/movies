@@ -1,0 +1,8 @@
+@import '../../styleConsts/styleConsts.module.css';
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  color: var(--color-white);
+  text-transform: uppercase;
+}

@@ -1,9 +1,15 @@
 import React from 'react'
 
-export const Logo = () => {
+import styles from './logo.module.css'
+
+export const Logo: React.FC = () => {
   return (
-    <a href="#">
-      <h1>movies roulette</h1>
-    </a>
+    <div>
+      <a href="#">
+        <h1 className={styles.title}>
+          <b>movies</b>roulette
+        </h1>
+      </a>
+    </div>
   )
 }

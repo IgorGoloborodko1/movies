@@ -1,0 +1,15 @@
+@import '../../styleConsts/styleConsts.module.css';
+
+.wrapper {
+  background-color: var(--color-light-black);
+  opacity: 0.5;
+}
+
+.button {
+  display: block;
+  text-transform: uppercase;
+  color: var(--color-red);
+  padding: 2px;
+  font-size: large;
+  border: none;
+}

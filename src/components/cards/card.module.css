@@ -1,11 +1,12 @@
-.container {
+.wrapper {
+  padding: 1.5rem;
 }
 
 .figure {
   height: 400px;
-  overflow: hidden;
   position: relative;
   margin: 0;
+  margin-bottom: 1rem;
 }
 
 .image {
@@ -13,27 +14,24 @@
   height: 400px;
 }
 
-/* .breweries > ul > li > figure > figcaption {
-  position: absolute;
-  bottom: 0;
-  background-color: rgba(0,0,0,.7);
-  width: 100%;
-} */
-
-/* .breweries > ul > li > figure > figcaption > h3 {
-  color: white;
-  padding: .75rem;
-  font-size: 1.25rem;
-} */
-
-/* .breweries > ul > li > p {
-  font-size: 1rem;
-  line-height: 1.5;
-  padding: 1rem .75rem;
-  color: #666666;
+.descNameWrapper {
+  display: flex;
+  justify-content: space-between;
+  color: var(--color-white)
 }
 
-.breweries > ul > li > a {
-  padding: .5rem 1rem;
-  margin: .5rem;
-} */
+.descWrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.description {
+  color: var(--color-white);
+  font-size: 12px;
+}
+
+.name {
+  color: var(--color-white);
+  font-size: 16px;
+}

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react'
 
 import styles from './card.module.css'
@@ -17,16 +16,16 @@ export const MovieCard: React.FC<MovieCardProps> = ({
   description,
 }) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.wrapper}>
       <figure className={styles.figure}>
         <img className={styles.image} src={imgSrc}></img>
       </figure>
-      <div>
-        <div>
-          <span>{name}</span>
-          <span>{description}</span>
+      <div className={styles.descNameWrapper}>
+        <div className={styles.descWrapper}>
+          <p className={styles.name}>{name}</p>
+          <p className={styles.description}>{description}</p>
         </div>
-        <span>{year}</span>
+        <p>{year}</p>
       </div>
     </div>
   )

@@ -18,6 +18,7 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
   rules: {
+    'react/prop-types': 0,
     '@typescript-eslint/no-var-requires': 'off',
   },
 }

@@ -1,9 +1,15 @@
 import React from 'react'
-import { ErrorBoundary } from '../components/errorBoundary/errorBoundary'
 
-import { Search } from '../components/search/search'
+import { PageHeading } from '../components/pageHeading/pageHeading'
 import { MovieCards } from '../components/cards/cards'
+import { Footer } from '../components/footer/footer'
 
 export const Home: React.FC = () => {
-  return <MovieCards />
+  return (
+    <>
+      <PageHeading />
+      <MovieCards />
+      <Footer />
+    </>
+  )
 }

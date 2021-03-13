@@ -1,45 +1,24 @@
-@import '../../styleConsts/styleConsts.css';
+@import '../../styleConsts/styleConsts.module.css';
 
 .wrapper {
-  background-color: var(--color-dark-grey);
-}
-
-.container {
-  max-width: 960px;
-  margin: auto;
-  padding-left: 1.6rem;
-  padding-right: 1.6rem;
-}
-
-@media (min-width: 600px){
-  .list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .listItem {
-    margin: 1.6rem;
-    flex: 0 0 48%;
-  }
-}
-
-@media (min-width: 960px){
-  .listItem {
-    flex: 0 0 32%;
-  }
-}
-
-/* .wrapper {
-  background-color: var(--color-dark-grey);
-  max-width: 1200px;
-  margin: auto;
-  padding: 1.6rem;
+  background-color: var(--color-black);
 }
 
 .list {
-  padding: 6rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  grid-gap: 3rem;
-  margin: 0 auto 3rem;
-} */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (min-width: 600px){
+  .listItem {
+    margin: 1.6rem;
+    flex: 0 0 33%;
+  }
+}
+
+@media (min-width: 1080px){
+  .listItem {
+    flex: 0 0 23%;
+  }
+}
