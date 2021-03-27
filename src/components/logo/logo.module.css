@@ -1,0 +1,7 @@
+@import '../../styleConsts/styleConsts.module.css';
+
+.title {
+  color: var(--color-red);
+  text-align: center;
+  font-size: 1.15rem;
+}

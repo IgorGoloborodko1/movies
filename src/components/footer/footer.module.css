@@ -1,0 +1,12 @@
+@import '../../styleConsts/styleConsts.module.css';
+
+.wrapper {
+  background-color: var(--color-dark-grey);
+  height: 100px;
+}
+
+.container {
+  margin: auto;
+  width: 12%;
+  padding-top: 2.25rem;
+}

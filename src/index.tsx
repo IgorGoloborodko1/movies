@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import { HelloWebpack } from './draft'
+import { App } from './components/app/App'
 
 import './index.css'
 
-ReactDOM.render(<HelloWebpack />, document.getElementById('root'))
+ReactDOM.render(<App />, document.getElementById('root'))
