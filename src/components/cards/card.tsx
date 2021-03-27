@@ -18,7 +18,7 @@ export const MovieCard: React.FC<MovieCardProps> = ({
   return (
     <div className={styles.wrapper}>
       <figure className={styles.figure}>
-        <img className={styles.image} src={imgSrc}></img>
+        <img className={styles.image} src={imgSrc} alt={name}></img>
       </figure>
       <div className={styles.descNameWrapper}>
         <div className={styles.descWrapper}>

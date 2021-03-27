@@ -9,7 +9,8 @@
   display: block;
   text-transform: uppercase;
   color: var(--color-red);
-  padding: 2px;
+  cursor: pointer;
+  padding: 0.25rem;
   font-size: large;
   border: none;
 }
