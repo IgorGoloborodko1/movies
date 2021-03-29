@@ -5,7 +5,7 @@ import styles from './editMovie.module.css'
 export const EditMovie: React.FC = () => {
   return (
     <>
-      <h1 className={styles.pageTitle}>add movie</h1>
+      <h1 className={styles.pageTitle}>edit movie</h1>
       <form className={styles.form} autoComplete="off">
         <label className={styles.label}>
           <span className={styles.fieldTitle}>movie id</span>
@@ -29,6 +29,7 @@ export const EditMovie: React.FC = () => {
 
         <label className={styles.label}>
           <span className={styles.fieldTitle}>release date</span>
+          <i className="fas fa-calendar-alt"></i>
           <input
             className={styles.field}
             type="text"
@@ -49,12 +50,12 @@ export const EditMovie: React.FC = () => {
 
         <label className={styles.label}>
           <span className={styles.fieldTitle}>genre</span>
-          <input
-            className={styles.field}
-            type="text"
-            name="genre"
-            placeholder="Select Genre"
-          />
+          <select className={styles.field} name="genre">
+            <option value="drama">Drama</option>
+            <option value="comedy" selected>
+              Comedy
+            </option>
+          </select>
         </label>
 
         <label className={styles.label}>
