@@ -1,4 +1,4 @@
-import React, { SyntheticEvent } from 'react'
+import React from 'react'
 
 import { ErrorBoundary } from '../errorBoundary/errorBoundary'
 import { Home } from '../../pages/homePage'
