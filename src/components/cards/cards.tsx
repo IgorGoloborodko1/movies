@@ -1,11 +1,15 @@
 import React from 'react'
 
 import { MovieCard } from '../cards/card'
-import { movies } from '../cards/moviesData'
+import { Movie } from '../../utils/interfaces'
 
 import styles from './cards.module.css'
 
-export const MovieCards: React.FC = () => (
+interface MovieCardsProps {
+  movies: Movie[]
+}
+
+export const MovieCards: React.FC<MovieCardsProps> = ({ movies }) => (
   <ul className={styles.list}>
     {movies.length < 1 ? (
       <h2>Sorry, no movies for your request...</h2>

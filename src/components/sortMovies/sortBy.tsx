@@ -2,11 +2,13 @@ import React from 'react'
 
 import styles from './sortBy.module.css'
 
-export const SortBy: React.FC = () => {
-  return (
-    <div className={styles.wrapper}>
-      <p>sort by</p>
-      <p>release date</p>
-    </div>
-  )
+interface SortByProps {
+  handleSort(): void
 }
+
+export const SortBy: React.FC<SortByProps> = ({ handleSort }) => (
+  <div className={styles.wrapper} onClick={handleSort}>
+    <p className={styles.sortBy}>sort by</p>
+    <p>release date</p>
+  </div>
+)

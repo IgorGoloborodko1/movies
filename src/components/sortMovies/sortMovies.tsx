@@ -5,11 +5,15 @@ import { SortBy } from './sortBy'
 
 import styles from './sortMovies.module.css'
 
-export const SortMovies: React.FC = () => {
+interface SortMoviesProps {
+  handleSort(): void
+}
+
+export const SortMovies: React.FC<SortMoviesProps> = ({ handleSort }) => {
   return (
     <div className={styles.wrapper}>
       <Categories />
-      <SortBy />
+      <SortBy handleSort={handleSort} />
     </div>
   )
 }
