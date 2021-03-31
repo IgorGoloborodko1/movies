@@ -18,7 +18,7 @@ export const Modal: React.FC<ModalProps> = ({
   const portal = document.createElement('div')
   const containerRef = React.useRef(null)
 
-  const handleWindowClick = (event: any) => {
+  const handleDocumentClick = (event: MouseEvent) => {
     const isTargetInsideContainer = containerRef.current.contains(event.target)
 
     if (isDisplayed && !isTargetInsideContainer) {
@@ -29,22 +29,20 @@ export const Modal: React.FC<ModalProps> = ({
   React.useEffect(() => {
     if (isDisplayed) {
       body.appendChild(portal)
-      body.style.overflow = 'hidden'
     }
 
     return () => {
       if (body.contains(portal)) {
         body.removeChild(portal)
-        body.style.overflow = 'initial'
       }
     }
   }, [portal, body, isDisplayed])
 
   React.useEffect(() => {
-    document.addEventListener('click', handleWindowClick)
+    document.addEventListener('click', handleDocumentClick)
 
     return () => {
-      document.removeEventListener('click', handleWindowClick)
+      document.removeEventListener('click', handleDocumentClick)
     }
   }, [])
 

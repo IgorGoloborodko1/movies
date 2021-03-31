@@ -1,8 +1,10 @@
-export const sortByYear = (a: any, b: any) => {
-  if (a.year > b.year) {
+import { Movie } from './interfaces'
+
+export const sortByYear = (movieA: Movie, movieB: Movie): number => {
+  if (movieA.year > movieB.year) {
     return 1
   }
-  if (a.year < b.year) {
+  if (movieA.year < movieB.year) {
     return -1
   }
   return 0

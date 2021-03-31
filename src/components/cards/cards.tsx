@@ -1,16 +1,9 @@
 import React from 'react'
 
 import { MovieCard } from '../cards/card'
+import { Movie } from '../../utils/interfaces'
 
 import styles from './cards.module.css'
-
-interface Movie {
-  id: number
-  imgSrc: string
-  name: string
-  year: number
-  description: string
-}
 
 interface MovieCardsProps {
   movies: Movie[]

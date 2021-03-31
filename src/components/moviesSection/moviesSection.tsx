@@ -4,15 +4,15 @@ import { MovieCards } from '../cards/cards'
 import { SortMovies } from '../sortMovies/sortMovies'
 import { sortByYear } from '../../utils/utils'
 
-import styles from './moviesSection.module.css'
-
 import { movies } from './moviesData'
+
+import styles from './moviesSection.module.css'
 
 export const MoviesSection: React.FC = () => {
   const [moviesData, setMoviesData] = React.useState(movies)
 
   const handleSort = () => {
-    const moviesDataCopy = moviesData.slice()
+    const moviesDataCopy = [...moviesData]
     moviesDataCopy.sort(sortByYear)
     setMoviesData(moviesDataCopy)
   }
