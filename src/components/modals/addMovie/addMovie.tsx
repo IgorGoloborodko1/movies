@@ -72,9 +72,7 @@ export const AddMovie: React.FC = () => {
         <button className={styles.resetBtn} type="button">
           reset
         </button>
-        <button className={styles.submitBtn} type="submit">
-          submit
-        </button>
+        <button type="submit">submit</button>
       </div>
     </>
   )

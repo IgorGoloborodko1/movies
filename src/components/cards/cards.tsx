@@ -7,15 +7,24 @@ import styles from './cards.module.css'
 
 interface MovieCardsProps {
   movies: Movie[]
+  handleMovieClick(e: any): void
 }
 
-export const MovieCards: React.FC<MovieCardsProps> = ({ movies }) => (
+export const MovieCards: React.FC<MovieCardsProps> = ({
+  movies,
+  handleMovieClick,
+}) => (
   <ul className={styles.list}>
     {movies.length < 1 ? (
       <h2>Sorry, no movies for your request...</h2>
     ) : (
       movies.map(({ id, imgSrc, name, year, description }) => (
-        <li key={id} className={styles.listItem}>
+        <li
+          key={id}
+          data-id={id}
+          className={styles.listItem}
+          onClick={handleMovieClick}
+        >
           <MovieCard
             imgSrc={imgSrc}
             name={name}
