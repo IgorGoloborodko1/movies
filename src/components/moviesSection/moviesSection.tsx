@@ -18,18 +18,20 @@ export const MoviesSection: React.FC = () => {
 
   const { isDisplayed, toggleModal } = useModal()
 
-  const handleSort = () => {
+  const handleSort = React.useCallback(() => {
     const moviesDataCopy = [...moviesData]
     moviesDataCopy.sort(sortByYear)
     setMoviesData(moviesDataCopy)
-  }
+  }, [moviesData])
 
-  const handleMovieClick = (e: any) => {
+  const handleMovieClick = (e: React.SyntheticEvent<HTMLElement>) => {
     const selectedMovieId = e.currentTarget.dataset.id
-    const selectedMovie = moviesData.find(movie => movie.id == selectedMovieId)
+    const { name, year } = moviesData.find(
+      ({ id }) => String(id) === selectedMovieId,
+    )
 
-    setSelectedMovieName(selectedMovie.name)
-    setSelectedMovieYear(selectedMovie.year)
+    setSelectedMovieName(name)
+    setSelectedMovieYear(year)
     toggleModal()
   }
 

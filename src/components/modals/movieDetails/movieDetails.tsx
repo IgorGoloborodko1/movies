@@ -2,6 +2,8 @@ import React from 'react'
 
 import styles from './movieDetails.module.css'
 
+import imgSrc from '../../../../assets/parazity.png'
+
 interface MovieDetailsProps {
   name: string
   year: number
@@ -14,11 +16,7 @@ export const MovieDetails: React.FC<MovieDetailsProps> = ({ name, year }) => {
         <h2>netflixroulette</h2>
       </div>
       <div className={styles.mainSection}>
-        <img
-          className={styles.image}
-          src="../../../../assets/parazity.png"
-          alt="Movie cover"
-        />
+        <img className={styles.image} src={imgSrc} alt="Movie cover" />
         <div>
           <div className={styles.details}>
             <h3 className={styles.title}>{name}</h3>

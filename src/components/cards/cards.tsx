@@ -7,7 +7,7 @@ import styles from './cards.module.css'
 
 interface MovieCardsProps {
   movies: Movie[]
-  handleMovieClick(e: any): void
+  handleMovieClick(e: React.SyntheticEvent<HTMLElement>): void
 }
 
 export const MovieCards: React.FC<MovieCardsProps> = ({
