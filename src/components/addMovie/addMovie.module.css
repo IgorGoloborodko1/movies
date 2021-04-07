@@ -8,7 +8,7 @@
 .button {
   display: block;
   text-transform: uppercase;
-  color: var(--color-red);
+  color: var(--color-white);
   cursor: pointer;
   padding: 0.25rem;
   font-size: large;

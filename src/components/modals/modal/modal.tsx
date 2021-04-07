@@ -6,13 +6,13 @@ import styles from './modal.module.css'
 interface ModalProps {
   isDisplayed: boolean
   children: React.ReactNode
-  handleClose(): void
+  handleModalClose(): void
 }
 
 export const Modal: React.FC<ModalProps> = ({
   isDisplayed,
   children,
-  handleClose,
+  handleModalClose,
 }) => {
   const body = document.querySelector('body')
   const portal = document.createElement('div')
@@ -22,7 +22,7 @@ export const Modal: React.FC<ModalProps> = ({
     const isTargetInsideContainer = containerRef.current.contains(event.target)
 
     if (isDisplayed && !isTargetInsideContainer) {
-      handleClose()
+      handleModalClose()
     }
   }
 
@@ -51,7 +51,7 @@ export const Modal: React.FC<ModalProps> = ({
     createPortal(
       <div className={styles.backdrop}>
         <div className={styles.window} ref={containerRef}>
-          <button className={styles.closeBtn} onClick={handleClose}>
+          <button className={styles.closeBtn} onClick={handleModalClose}>
             X
           </button>
           {children}

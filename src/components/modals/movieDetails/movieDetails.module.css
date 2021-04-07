@@ -1,0 +1,60 @@
+@import '../../../styleConsts/styleConsts.module.css';
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  color: var(--color-red);
+  margin-bottom: 25px;
+  padding: 20px;
+}
+
+.mainSection {
+  display: flex;
+  justify-content: flex-start;
+  padding: 20px;
+  color: var(--color-white);
+}
+
+.image {
+  display: block;
+  width: 300px;
+  height: 400px;
+  margin-right: 25px;
+}
+
+.details {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 35px;
+}
+
+.title {
+  margin-right: 30px;
+  margin-bottom: 20px;
+}
+
+.rating {
+  letter-spacing: -5px;
+  color:rgb(122, 227, 18);
+}
+
+.fact {
+  margin-bottom: 20px;
+  color:var(--color-light-grey);
+}
+
+.info {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  color: var(--color-red);
+  font-size: 25px;
+}
+
+.year {
+  margin-right: 20px;
+}
+
+.description {
+  color: var(--color-light-grey);
+}
