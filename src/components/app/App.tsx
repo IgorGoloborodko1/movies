@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 
 import { ErrorBoundary } from '../errorBoundary/errorBoundary'
 import { Home } from '../../pages/homePage'

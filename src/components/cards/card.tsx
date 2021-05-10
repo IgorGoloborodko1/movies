@@ -1,12 +1,15 @@
 import React from 'react'
 
+import { MoviesActions } from '../moviesActions/moviesActions'
+
 import styles from './card.module.css'
 
 interface MovieCardProps {
   imgSrc: string
   name: string
-  year: number
+  year: string
   description: string
+  handleMovieClick(): void
 }
 
 export const MovieCard: React.FC<MovieCardProps> = ({
@@ -14,9 +17,10 @@ export const MovieCard: React.FC<MovieCardProps> = ({
   name,
   year,
   description,
+  handleMovieClick,
 }) => {
   return (
-    <div className={styles.wrapper}>
+    <div onClick={() => handleMovieClick(id)} className={styles.wrapper}>
       <figure className={styles.figure}>
         <img className={styles.image} src={imgSrc} alt={name}></img>
       </figure>
@@ -25,8 +29,9 @@ export const MovieCard: React.FC<MovieCardProps> = ({
           <p className={styles.name}>{name}</p>
           <p className={styles.description}>{description}</p>
         </div>
-        <p>{year}</p>
+        <p>{year.slice(0, 4)}</p>
       </div>
+      <MoviesActions />
     </div>
   )
 }

@@ -18,13 +18,13 @@ export const Modal: React.FC<ModalProps> = ({
   const portal = document.createElement('div')
   const containerRef = React.useRef(null)
 
-  const handleDocumentClick = (event: MouseEvent) => {
-    const isTargetInsideContainer = containerRef.current.contains(event.target)
+  // const handleDocumentClick = (event: MouseEvent) => {
+  //   const isTargetInsideContainer = containerRef.current.contains(event.target)
 
-    if (isDisplayed && !isTargetInsideContainer) {
-      handleModalClose()
-    }
-  }
+  //   if (isDisplayed && !isTargetInsideContainer) {
+  //     handleModalClose()
+  //   }
+  // }
 
   React.useEffect(() => {
     if (isDisplayed) {
@@ -38,13 +38,15 @@ export const Modal: React.FC<ModalProps> = ({
     }
   }, [portal, body, isDisplayed])
 
-  React.useEffect(() => {
-    document.addEventListener('click', handleDocumentClick)
+  // React.useEffect(() => {
+  //   document.addEventListener('click', handleDocumentClick)
 
-    return () => {
-      document.removeEventListener('click', handleDocumentClick)
-    }
-  }, [])
+  //   return () => {
+  //     document.removeEventListener('click', handleDocumentClick)
+  //   }
+  // }, [])
+
+  console.log('!!! Render')
 
   return (
     isDisplayed &&
