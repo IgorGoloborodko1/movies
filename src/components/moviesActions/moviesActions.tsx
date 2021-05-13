@@ -7,7 +7,7 @@ import { Modal } from '../modals/modal/modal'
 import { DeleteMovieModal } from '../modals/deleteMovie/deleteMovieModal'
 import { EditMovieModal } from '../modals/editMovie/editMovieModal'
 
-import styles from './moviesActions.css'
+import styles from './moviesActions.module.css'
 
 interface MoviesActionsProps {
   id: string
@@ -29,7 +29,7 @@ export const MoviesActions: React.FC<MoviesActionsProps> = ({ id }) => {
   return (
     <div className={styles.wrapper}>
       <div>
-        <button onClick={toggleModal} className={styles.MovieOptionsListBtn}>
+        <button onClick={toggleModal} className={styles.button}>
           Delete
         </button>
         <Modal isDisplayed={isDisplayed} handleModalClose={toggleModal}>
@@ -38,7 +38,7 @@ export const MoviesActions: React.FC<MoviesActionsProps> = ({ id }) => {
       </div>
 
       <div>
-        <button onClick={toggleModal} className={styles.MovieOptionsListBtn}>
+        <button onClick={toggleModal} className={styles.button}>
           Edit
         </button>
         <Modal isDisplayed={isDisplayed} handleModalClose={toggleModal}>
