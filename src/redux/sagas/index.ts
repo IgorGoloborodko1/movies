@@ -76,11 +76,7 @@ function* watchGetSingleMovie(): Generator<ForkEffect<never>, void, unknown> {
   yield takeLatest(ActionTypes.SINGLE_MOVIE_FETCH_REQUESTED, getSingleMovie)
 }
 
-function* watchDeleteMovie(): Generator<
-  ForkEffect<never>,
-  void,
-  typeof ActionTypes
-> {
+function* watchDeleteMovie(): Generator<ForkEffect<never>, void, unknown> {
   yield takeLatest(ActionTypes.DELETE_MOVIE_REQUESTED, deleteMovie)
 }
 

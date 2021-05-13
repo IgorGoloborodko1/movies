@@ -14,28 +14,14 @@ import styles from './editMovieModal.module.css'
 
 interface EditMovieModalProps {
   id: string
-  handleUpdate(id: string): void
 }
 
-export const EditMovieModal: React.FC<EditMovieModalProps> = ({
-  id,
-  handleUpdate,
-}) => {
+export const EditMovieModal: React.FC<EditMovieModalProps> = ({ id }) => {
   const dispatch = useDispatch()
-  const currentMovie = useSelector(getMovie, shallowEqual)
 
   React.useEffect(() => {
     dispatch(singleMovieFetchRequested(id))
   }, [])
-
-  const {
-    id: movieId,
-    title,
-    release_date,
-    overview,
-    poster_path,
-    runtime,
-  } = currentMovie
 
   const initialValues = {
     id: 0,

@@ -1,7 +1,7 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
-import { deleteMovieRequested, updateMovieRequested } from '../../redux/actions'
+import { deleteMovieRequested } from '../../redux/actions'
 import { useModal } from '../../hooks/hooks'
 import { Modal } from '../modals/modal/modal'
 import { DeleteMovieModal } from '../modals/deleteMovie/deleteMovieModal'
@@ -22,10 +22,6 @@ export const MoviesActions: React.FC<MoviesActionsProps> = ({ id }) => {
     dispatch(deleteMovieRequested(id))
   }
 
-  const handleUpdate = () => {
-    dispatch(updateMovieRequested(id))
-  }
-
   return (
     <div className={styles.wrapper}>
       <div>
@@ -42,7 +38,7 @@ export const MoviesActions: React.FC<MoviesActionsProps> = ({ id }) => {
           Edit
         </button>
         <Modal isDisplayed={isDisplayed} handleModalClose={toggleModal}>
-          <EditMovieModal id={id} handleUpdate={handleUpdate} />
+          <EditMovieModal id={id} />
         </Modal>
       </div>
     </div>

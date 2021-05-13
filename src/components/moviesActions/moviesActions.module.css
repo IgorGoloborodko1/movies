@@ -1,15 +1,16 @@
 .wrapper {
   display: flex;
   justify-content: flex-start;
+  margin-bottom: 5px;
 }
 
 .button {
-  /* border: 2px solid var(--color-red); */
-  /* border-radius: 5px; */
+  border: none;
   margin-right: 15px;
   padding: 7px 35px;
   text-transform: uppercase;
   font-size: 14px;
-  background-color: var(--color-white);
+  background-color: var(--color-light-grey);
   color: var(--color-black);
+  cursor: pointer;
 }

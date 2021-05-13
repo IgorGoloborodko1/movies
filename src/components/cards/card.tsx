@@ -23,6 +23,7 @@ export const MovieCard: React.FC<MovieCardProps> = ({
 }) => {
   return (
     <div className={styles.wrapper}>
+      <MoviesActions id={id} />
       <figure className={styles.figure}>
         <img
           className={styles.image}
@@ -41,7 +42,7 @@ export const MovieCard: React.FC<MovieCardProps> = ({
         </div>
         <p>{year.slice(0, 4)}</p>
       </div>
-      <MoviesActions id={id} />
+      
     </div>
   )
 }
