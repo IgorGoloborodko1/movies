@@ -1,7 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { getMovieId } from '../../redux/selectors'
 import { deleteMovieRequested, updateMovieRequested } from '../../redux/actions'
 import { useModal } from '../../hooks/hooks'
 import { Modal } from '../modals/modal/modal'
@@ -10,14 +9,17 @@ import { EditMovieModal } from '../modals/editMovie/editMovieModal'
 
 import styles from './moviesActions.css'
 
-export const MoviesActions: React.FC = () => {
+interface MoviesActionsProps {
+  id: string
+}
+
+export const MoviesActions: React.FC<MoviesActionsProps> = ({ id }) => {
   const dispatch = useDispatch()
-  const id = useSelector(getMovieId)
 
   const { isDisplayed, toggleModal } = useModal()
 
   const handleDelete = () => {
-    dispatch(deleteMovieRequested)
+    dispatch(deleteMovieRequested(id))
   }
 
   const handleUpdate = () => {
@@ -25,7 +27,7 @@ export const MoviesActions: React.FC = () => {
   }
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       <div>
         <button onClick={toggleModal} className={styles.MovieOptionsListBtn}>
           Delete
@@ -40,7 +42,7 @@ export const MoviesActions: React.FC = () => {
           Edit
         </button>
         <Modal isDisplayed={isDisplayed} handleModalClose={toggleModal}>
-          <EditMovieModal handleUpdate={handleUpdate} />
+          <EditMovieModal id={id} handleUpdate={handleUpdate} />
         </Modal>
       </div>
     </div>

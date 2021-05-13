@@ -5,22 +5,22 @@ import { MoviesActions } from '../moviesActions/moviesActions'
 import styles from './card.module.css'
 
 interface MovieCardProps {
+  id: string
   imgSrc: string
   name: string
   year: string
   description: string
-  handleMovieClick(): void
 }
 
 export const MovieCard: React.FC<MovieCardProps> = ({
+  id,
   imgSrc,
   name,
   year,
   description,
-  handleMovieClick,
 }) => {
   return (
-    <div onClick={() => handleMovieClick(id)} className={styles.wrapper}>
+    <div className={styles.wrapper}>
       <figure className={styles.figure}>
         <img className={styles.image} src={imgSrc} alt={name}></img>
       </figure>
@@ -31,7 +31,7 @@ export const MovieCard: React.FC<MovieCardProps> = ({
         </div>
         <p>{year.slice(0, 4)}</p>
       </div>
-      <MoviesActions />
+      <MoviesActions id={id} />
     </div>
   )
 }

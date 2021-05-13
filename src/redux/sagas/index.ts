@@ -11,9 +11,7 @@ import { ActionTypes } from '../actions/actionTypes'
 import * as actions from '../actions/index'
 import * as API from '../../api/requests'
 
-function* getMovies(id: any) {
-  console.log(id)
-
+function* getMovies() {
   try {
     const {
       data: { data },
@@ -24,11 +22,12 @@ function* getMovies(id: any) {
   }
 }
 
-function* getSingleMovie({ id }: any) {
+function* getSingleMovie({
+  payload,
+}: ReturnType<typeof actions.singleMovieFetchRequested>) {
   try {
-    const {
-      data: { data },
-    } = yield call(API.fetchMovieById, id)
+    const { data } = yield call(API.fetchMovieById, payload.id)
+
     yield put(actions.singleMovieFetchSucceded(data))
   } catch (e) {
     yield put(actions.singleMovieFetchFailed(e.message))
@@ -37,9 +36,9 @@ function* getSingleMovie({ id }: any) {
 
 function* deleteMovie({
   payload,
-}: ReturnType<typeof actions.deleteMovieSucceded>) {
+}: ReturnType<typeof actions.deleteMovieRequested>) {
   try {
-    const { status } = yield call(API.deleteMovieById, payload)
+    const { status } = yield call(API.deleteMovieById, payload.id)
     if (status === 204) {
       yield put(actions.deleteMovieRequested(payload))
     }
@@ -48,11 +47,9 @@ function* deleteMovie({
   }
 }
 
-export function* postMovie({
+function* postMovie({
   payload,
-}: ReturnType<typeof actions.postMovieSucceded>) {
-  console.log('postMovie Saga', payload.movie)
-
+}: ReturnType<typeof actions.postMovieRequested>) {
   try {
     yield call(API.postMovie, payload.movie)
   } catch (error) {
@@ -60,55 +57,39 @@ export function* postMovie({
   }
 }
 
-export function* updateMovie({
+function* updateMovie({
   payload,
-}: ReturnType<typeof actions.updateMovie>) {
+}: ReturnType<typeof actions.updateMovieRequested>) {
   try {
-    yield call(API.updateMovie, payload)
+    yield call(API.updateMovie, payload.movie)
     yield put(actions.updateMovieSucceded('Movie was edited'))
   } catch (error) {
     yield put(actions.updateMovieFailed(error))
   }
 }
 
-export function* watchGetMovies(): Generator<ForkEffect<never>, void, unknown> {
+function* watchGetMovies(): Generator<ForkEffect<never>, void, unknown> {
   yield takeLatest(ActionTypes.MOVIES_FETCH_REQUESTED, getMovies)
 }
 
-export function* watchGetSingleMovie(): Generator<
-  ForkEffect<never>,
-  void,
-  unknown
-> {
+function* watchGetSingleMovie(): Generator<ForkEffect<never>, void, unknown> {
   yield takeLatest(ActionTypes.SINGLE_MOVIE_FETCH_REQUESTED, getSingleMovie)
 }
 
-export function* watchDeleteMovie(): Generator<
+function* watchDeleteMovie(): Generator<
   ForkEffect<never>,
   void,
-  unknown
+  typeof ActionTypes
 > {
   yield takeLatest(ActionTypes.DELETE_MOVIE_REQUESTED, deleteMovie)
 }
 
-export function* watchUpdateMovie(): Generator<
-  ForkEffect<never>,
-  void,
-  unknown
-> {
+function* watchUpdateMovie(): Generator<ForkEffect<never>, void, unknown> {
   yield takeLatest(ActionTypes.UPDATE_MOVIE_REQUESTED, updateMovie)
 }
 
-export function* watchPostMovie(): Generator<ForkEffect<never>, void, unknown> {
+function* watchPostMovie(): Generator<ForkEffect<never>, void, unknown> {
   yield takeLatest(ActionTypes.POST_MOVIE_REQUESTED, postMovie)
-}
-
-export function* watchSetSelectedMovie(): Generator<
-  ForkEffect<never>,
-  void,
-  unknown
-> {
-  yield takeLatest(ActionTypes.SET_SELECTED_MOVIE_REQUESTED, setSelectedMovie)
 }
 
 export function* rootSaga(): Generator<

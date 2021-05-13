@@ -1,6 +1,6 @@
 import { ActionTypes } from './actionTypes'
 
-export const moviesFetchRequested = (id: any): any => ({
+export const moviesFetchRequested = (): any => ({
   type: ActionTypes.MOVIES_FETCH_REQUESTED,
 })
 
@@ -18,26 +18,32 @@ export const moviesFetchFailed = (errorMessage: any) => ({
   },
 })
 
-export const singleMovieFetchRequested = (): any => ({
-  type: ActionTypes.MOVIES_FETCH_REQUESTED,
+export const singleMovieFetchRequested = (id: string) => ({
+  type: ActionTypes.SINGLE_MOVIE_FETCH_REQUESTED,
+  payload: {
+    id,
+  },
 })
 
-export const singleMovieFetchSucceded = (currentMovie: any) => ({
-  type: ActionTypes.MOVIES_FETCH_SUCCEEDED,
+export const singleMovieFetchSucceded = (movie: any) => ({
+  type: ActionTypes.SINGLE_MOVIE_FETCH_SUCCEEDED,
   payload: {
-    currentMovie,
+    movie,
   },
 })
 
 export const singleMovieFetchFailed = (errorMessage: any) => ({
-  type: ActionTypes.MOVIES_FETCH_FAILED,
+  type: ActionTypes.SINGLE_MOVIE_FETCH_FAILED,
   payload: {
     singleMovieFetchErrorMessage: errorMessage,
   },
 })
 
-export const deleteMovieRequested = (movies: any) => ({
+export const deleteMovieRequested = (id: any) => ({
   type: ActionTypes.DELETE_MOVIE_REQUESTED,
+  payload: {
+    id,
+  },
 })
 
 export const deleteMovieSucceded = (statusCode: any) => ({
@@ -54,8 +60,11 @@ export const deleteMovieFailed = (errorMessage: any) => ({
   },
 })
 
-export const updateMovieRequested = (movies: any) => ({
+export const updateMovieRequested = (movie: any) => ({
   type: ActionTypes.UPDATE_MOVIE_REQUESTED,
+  payload: {
+    movie,
+  },
 })
 
 export const updateMovieSucceded = (currentMovie: any) => ({
@@ -96,3 +105,12 @@ export const postMovieFailed = (errorMessage: any) => ({
     postMovieErrorMessage: errorMessage,
   },
 })
+
+export const setSelectedMovieRequested = (movie: any) => {
+  return {
+    type: ActionTypes.SET_SELECTED_MOVIE_REQUESTED,
+    payload: {
+      movie,
+    },
+  }
+}

@@ -41,3 +41,7 @@
   border: 2px solid var(--color-red);
   color: var(--color-red);
 }
+
+.error {
+  color: var(--color-red);
+}

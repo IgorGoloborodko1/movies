@@ -8,6 +8,7 @@ interface DeleteMovieModalProps {
 
 export const DeleteMovieModal: React.FC<DeleteMovieModalProps> = ({
   handleDelete,
+  id,
 }) => {
   return (
     <>

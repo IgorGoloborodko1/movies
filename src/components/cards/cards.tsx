@@ -17,12 +17,12 @@ export const MovieCards: React.FC = () => {
     dispatch(moviesFetchRequested())
   }, [])
 
-  const handleMovieClick = (e: React.SyntheticEvent<HTMLElement>) => {
-    const selectedMovieId = e.currentTarget.dataset.id
-    const movie = movies.find(({ id }) => String(id) === selectedMovieId)
+  // const handleMovieClick = (e: React.SyntheticEvent<HTMLElement>) => {
+  //   const selectedMovieId = e.currentTarget.dataset.id
+  //   const movie = movies.find(({ id }) => String(id) === selectedMovieId)
 
-    dispatch(setSelectedMovieRequested(movie))
-  }
+  //   dispatch(setSelectedMovieRequested(movie))
+  // }
 
   return (
     <ul className={styles.list}>
@@ -32,11 +32,11 @@ export const MovieCards: React.FC = () => {
         movies.map(({ id, poster_path, title, release_date, tagline }) => (
           <li key={id} data-id={id} className={styles.listItem}>
             <MovieCard
+              id={String(id)}
               imgSrc={poster_path}
               name={title}
               year={release_date}
               description={tagline}
-              handleMovieClick={hand}
             />
           </li>
         ))

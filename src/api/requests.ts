@@ -18,7 +18,6 @@ export const deleteMovieById = (id: string): Promise<AxiosPromise> =>
 //   axios.post(`/movies`, movie)
 
 export const postMovie = (movie: any): Promise<AxiosPromise> => {
-  console.log('API!!!!!', movie)
   return axios.post(`/movies`, movie)
 }
 export const updateMovie = (movie: Movie): Promise<AxiosPromise> =>

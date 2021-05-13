@@ -1,17 +1,41 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { ErrorMessage, Field, Form, Formik } from 'formik'
 
-import { updateMovieRequested } from '../../../redux/actions'
+import {
+  updateMovieRequested,
+  singleMovieFetchRequested,
+} from '../../../redux/actions'
+
+import { getMovie } from '../../../redux/selectors'
+import { editMovieValidationSchema } from './validationSchema'
 
 import styles from './editMovieModal.module.css'
 
 interface EditMovieModalProps {
+  id: string
   handleUpdate(id: string): void
 }
 
-export const EditMovieModal: React.FC = ({ handleUpdate }) => {
+export const EditMovieModal: React.FC<EditMovieModalProps> = ({
+  id,
+  handleUpdate,
+}) => {
   const dispatch = useDispatch()
+  const currentMovie = useSelector(getMovie, shallowEqual)
+
+  React.useEffect(() => {
+    dispatch(singleMovieFetchRequested(id))
+  }, [])
+
+  const {
+    id: movieId,
+    title,
+    release_date,
+    overview,
+    poster_path,
+    runtime,
+  } = currentMovie
 
   const initialValues = {
     id: 0,
@@ -24,45 +48,35 @@ export const EditMovieModal: React.FC = ({ handleUpdate }) => {
   }
 
   const handleSubmit = (movie: any) => {
+    console.log(movie)
     dispatch(updateMovieRequested(movie))
   }
 
   return (
-    <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+    <Formik
+      initialValues={initialValues}
+      onSubmit={handleSubmit}
+      validationSchema={editMovieValidationSchema}
+    >
       <Form className={styles.form} autoComplete="off">
         <h1 className={styles.pageTitle}>edit movie</h1>
 
         <label className={styles.label}>
           <span className={styles.fieldTitle}>movie id</span>
-          <Field
-            className={styles.field}
-            type="text"
-            name="id"
-            placeholder="11111111"
-          />
+          <Field className={styles.field} type="text" name="id" />
         </label>
         <ErrorMessage name="id" />
 
         <label className={styles.label}>
           <span className={styles.fieldTitle}>title</span>
-          <Field
-            className={styles.field}
-            type="text"
-            name="title"
-            placeholder="Moana"
-          />
+          <Field className={styles.field} type="text" name="title" />
         </label>
         <ErrorMessage name="title" />
 
         <label className={styles.label}>
           <span className={styles.fieldTitle}>release date</span>
           <i className="fas fa-calendar-alt"></i>
-          <Field
-            className={styles.field}
-            type="text"
-            name="release_date"
-            placeholder="Select date"
-          />
+          <Field className={styles.field} type="date" name="release_date" />
         </label>
         <ErrorMessage name="release_date" />
 
@@ -83,34 +97,19 @@ export const EditMovieModal: React.FC = ({ handleUpdate }) => {
 
         <label className={styles.label}>
           <span className={styles.fieldTitle}>overview</span>
-          <Field
-            className={styles.field}
-            type="text"
-            name="overview"
-            placeholder="Overview here"
-          />
+          <Field className={styles.field} type="text" name="overview" />
         </label>
         <ErrorMessage name="overview" />
 
         <label className={styles.label}>
           <span className={styles.fieldTitle}>poster path</span>
-          <Field
-            className={styles.field}
-            type="text"
-            name="poster_path"
-            placeholder="Poster"
-          />
+          <Field className={styles.field} type="text" name="poster_path" />
         </label>
         <ErrorMessage name="poster_path" />
 
         <label className={styles.label}>
           <span className={styles.fieldTitle}>runtime</span>
-          <Field
-            className={styles.field}
-            type="text"
-            name="runtime"
-            placeholder="Runtime here"
-          />
+          <Field className={styles.field} type="text" name="runtime" />
         </label>
         <ErrorMessage name="runtime" />
 

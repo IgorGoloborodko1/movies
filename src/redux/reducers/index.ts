@@ -4,7 +4,7 @@ import { Movie } from '../../utils/interfaces'
 const initialState: MoviesState = {
   movies: [],
   moviesFetchFailedErrorMessage: '',
-  currentMovie: '',
+  currentMovie: {},
   singleMovieFetchFailedErrorMessage: '',
 }
 
