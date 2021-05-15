@@ -1,15 +1,21 @@
 import React from 'react'
 
+import { MoviesActions } from '../moviesActions/moviesActions'
+
+import noImagePicture from '../../../assets/noImagePicture.png'
+
 import styles from './card.module.css'
 
 interface MovieCardProps {
+  id: string
   imgSrc: string
   name: string
-  year: number
+  year: string
   description: string
 }
 
 export const MovieCard: React.FC<MovieCardProps> = ({
+  id,
   imgSrc,
   name,
   year,
@@ -17,16 +23,26 @@ export const MovieCard: React.FC<MovieCardProps> = ({
 }) => {
   return (
     <div className={styles.wrapper}>
+      <MoviesActions id={id} />
       <figure className={styles.figure}>
-        <img className={styles.image} src={imgSrc} alt={name}></img>
+        <img
+          className={styles.image}
+          src={imgSrc}
+          alt={name}
+          onError={({ target }) => {
+            ;(target as HTMLImageElement).onerror = null
+            ;(target as HTMLImageElement).src = noImagePicture
+          }}
+        ></img>
       </figure>
       <div className={styles.descNameWrapper}>
         <div className={styles.descWrapper}>
           <p className={styles.name}>{name}</p>
           <p className={styles.description}>{description}</p>
         </div>
-        <p>{year}</p>
+        <p>{year.slice(0, 4)}</p>
       </div>
+      
     </div>
   )
 }

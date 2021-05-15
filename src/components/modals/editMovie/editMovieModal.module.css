@@ -2,33 +2,32 @@
 
 .form {
   width: 600px;
-  margin-bottom: 40px;
 }
 
 .label {
   display: flex;
   flex-direction: column;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
 .pageTitle {
   text-transform: uppercase;
-  margin-bottom: 35px;
+  margin-bottom: 20px;
   letter-spacing: 5px;
   color: var(--color-white);
 }
 
 .fieldTitle {
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   color: var(--color-red);
 }
 
 .field {
   background-color: var(--color-light-grey);
   color: var(--color-white);
-  font-size: 18px;
-  padding: 5px;
+  font-size: 14px;
+  padding: 3px;
 }
 
 .btnsContainer {
@@ -39,5 +38,9 @@
 .resetBtn {
   background-color: var(--color-black);
   border: 2px solid var(--color-red);
+  color: var(--color-red);
+}
+
+.error {
   color: var(--color-red);
 }
